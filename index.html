@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>🎬 Movie Ticket Booking</h2>
+
+    <input type="text" id="name" placeholder="Enter Your Name">
+
+    <select id="movie">
+        <option value="">Select Movie</option>
+        <option>Leo</option>
+        <option>Jailer</option>
+        <option>GOAT</option>
+        <option>Coolie</option>
+    </select>
+
+    <input type="date" id="date">
+
+    <input type="time" id="time">
+
+    <input type="number" id="tickets" placeholder="Number of Tickets">
+
+    <button onclick="bookTicket()">Book Ticket</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+    function bookTicket(){
+
+    let name = document.getElementById("name").value;
+    let movie = document.getElementById("movie").value;
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
+    let tickets = Number(document.getElementById("tickets").value);
+
+    let ticketPrice = 200;
+    let totalAmount = tickets * ticketPrice;
+
+    if(name == "" || movie == "" || date == "" || time == "" || tickets <= 0){
+
+        document.getElementById("result").innerHTML =
+        "<h3 style='color:red;'>Please fill all details!</h3>";
+
+    }
+    else{
+
+        document.getElementById("result").innerHTML =
+
+        "<h3 style='color:green;'>🎉 Booking Successful</h3>" +
+
+        "<b>Name :</b> " + name + "<br><br>" +
+
+        "<b>Movie :</b> " + movie + "<br><br>" +
+
+        "<b>Show Date :</b> " + date + "<br><br>" +
+
+        "<b>Show Time :</b> " + time + "<br><br>" +
+
+        "<b>Tickets :</b> " + tickets + "<br><br>" +
+
+        "<b>Ticket Price :</b> ₹" + ticketPrice + "<br><br>" +
+
+        "<b>Total Amount :</b> ₹" + totalAmount;
+
+    }
+
+}
+</script>
+
+</body>
+</html>
